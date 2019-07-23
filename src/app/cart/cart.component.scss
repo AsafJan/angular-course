@@ -1,0 +1,16 @@
+.item {
+    text-align: center;
+    vertical-align: top;
+    padding: 20px;
+    display: inline-block;
+    width: 100px;
+    
+    .item-img {
+        width: 50px;
+    }  
+    
+    .item-price {
+        font-weight: bold;
+        color: green;
+    }
+}

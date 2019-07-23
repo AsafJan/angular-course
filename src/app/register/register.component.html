@@ -1,0 +1,43 @@
+<div class="container">
+    <h1>Register Reactive Form</h1>
+
+    <form [formGroup]="form">
+        <div class="form-group">
+            <mat-form-field class="example-full-width">
+                <input matInput placeholder="Name" id="nameInput" type="text" formControlName="name" required>
+            </mat-form-field>
+            <br>
+            <mat-error
+                *ngIf="!form.get('name').valid && form.get('name').touched && form.get('name').hasError('minlength')">
+                <small>name is not valid</small>
+            </mat-error>
+            <mat-error
+                *ngIf="!form.get('name').valid && form.get('name').touched && form.get('name').hasError('required')">
+                <small>name is required</small>
+            </mat-error>
+            <br>
+            <mat-form-field class="example-full-width">
+                <input matInput placeholder="Email" id="emailInput" type="email" formControlName="email" required>
+            </mat-form-field>
+            <br>
+            <mat-error
+                *ngIf="!form.get('email').valid && form.get('email').touched && form.get('email').hasError('email')">
+                <small>email is not valid</small>
+            </mat-error>
+            <mat-error
+                *ngIf="!form.get('email').valid && form.get('email').touched && form.get('email').hasError('required')">
+                <small>email is required</small>
+            </mat-error>
+            <br>
+            <mat-form-field class="example-full-width">
+                <input matInput placeholder="Password" id="passwordInput" type="password" formControlName="password"
+                    required>
+            </mat-form-field>
+            <mat-error *ngIf="form.get('password').touched && form.get('password').hasError('required')">
+                <small>Please enter a password</small>
+            </mat-error>
+        </div>
+
+        <button mat-raised-button color="primary" [disabled]="!form.valid" (click)="submit()">Register</button>
+    </form>
+</div>

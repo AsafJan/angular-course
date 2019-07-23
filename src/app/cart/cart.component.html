@@ -1,0 +1,17 @@
+<h1>My Cart</h1>
+
+<div *ngIf="cartItems; else cartIsEmpty">
+    <div *ngFor="let item of cartItems" class="item">
+        <h3>{{item.description}}</h3>
+        <img [src]="item.imageUrl" class="item-img" />
+        <div class="item-price">{{item.price / 100}} $</div>
+    </div>
+</div>
+
+<ng-template #cartIsEmpty>
+    <div>
+        Yourt cart is empty
+    </div>
+</ng-template>
+
+<div *NgNotIf="isFalse">ngNotIf example</div>

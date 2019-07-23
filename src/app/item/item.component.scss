@@ -1,0 +1,22 @@
+
+.item {
+    cursor: pointer;
+    text-align: center;
+    vertical-align: top;
+    padding: 20px;
+    display: inline-block;
+    width: 300px;
+    
+    .item-img {
+        width: 200px;
+    }  
+    
+    .item-price {
+        font-weight: bold;
+        color: green;
+    }
+
+    :hover {
+        background-color: lightblue;
+    }
+}

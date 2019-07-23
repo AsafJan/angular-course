@@ -1,0 +1,15 @@
+<!-- <mat-grid-tile	[colspan]="1"  [rowspan]="1" style="border: 1px solid;"> -->
+<div class="item">
+    <div (click)="itemClicked()">
+        <h3>{{item.description}}</h3>
+        <img [src]="item.imageUrl" class="item-img" />
+        <div class="item-price">{{item.price/ 100}} after discount:{{item.price / 100 | discount:20 | currency}}</div>
+    </div>
+
+    <button mat-raised-button color="primary" (click)="addToCartClicked(item)"
+        *ngIf="!isInCart; else removeFromCart">add to cart</button>
+    <ng-template #removeFromCart>
+        <button mat-raised-button color="warn" (click)="removeFromCartClicked(item)">remove from cart</button>
+    </ng-template>
+</div>
+<!-- </mat-grid-tile> -->

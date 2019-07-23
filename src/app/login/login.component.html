@@ -1,0 +1,31 @@
+<div class="container">
+    <h1>Login Template-Deriven Form</h1>
+
+    <form #form="ngForm" (ngSubmit)="submit(form)">
+        <div class="form-group">
+            <mat-form-field class="example-full-width">
+                <input matInput placeholder="Email" id="emailInput" type="email" ngModel name="email" required email
+                    #email="ngModel">
+            </mat-form-field>
+            <br>
+            <small class="red" *ngIf="email.touched && !email.valid && email.hasError('required')">
+                email is required
+            </small>
+            <small class="red" *ngIf="email.touched && !email.valid && email.hasError('email')">
+                email is not valid
+            </small>
+            <br>
+            <mat-form-field class="example-full-width">
+                <input matInput placeholder="Password" id="passwordInput" type="password" name="password" ngModel
+                    required #password="ngModel">
+            </mat-form-field>
+            <br>
+            <small class="red" *ngIf="password.touched && !password.valid">
+                password is not valid
+            </small>
+            <br>
+            <button mat-raised-button color="primary" [disabled]="!form.valid" type="submit"
+                class="btn btn-success">Login</button>
+        </div>
+    </form>
+</div>
