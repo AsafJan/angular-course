@@ -6,13 +6,14 @@ import {
   MetaReducer
 } from '@ngrx/store';
 import { environment } from '../../environments/environment';
+import { AuthState, reducer } from '../login.reducer';
 
 export interface State {
-
+  auth: AuthState
 }
 
 export const reducers: ActionReducerMap<State> = {
-
+  auth: reducer
 };
 
 

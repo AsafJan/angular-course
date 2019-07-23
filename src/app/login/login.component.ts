@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
+import { Store } from '@ngrx/store';
+import { UserLogin } from '../login.actions';
 
 @Component({
   selector: 'app-login',
@@ -8,13 +10,18 @@ import { AuthService } from '../services/auth.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private auth: AuthService) { }
+  constructor(private auth: AuthService,
+    private store: Store<any>) { }
 
   ngOnInit() {
   }
 
   submit(form) {
-    this.auth.login(form.value['email']);
+    // use regular rxjs
+    //this.auth.login(form.value['email']);
+
+    // use ngrx
+    this.store.dispatch(new UserLogin(form.value['email']));
   }
 
 }

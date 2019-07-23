@@ -11,7 +11,8 @@ import { CartComponent } from './cart/cart.component';
 const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'feed', component: FeedComponent, canActivate: [AuthGuard] },
+  //{ path: 'feed', component: FeedComponent, canActivate: [AuthGuard] },
+  { path: 'feed', component: FeedComponent },
   { path: 'cart', component: CartComponent },
   { path: 'product/:id', component: ProductComponent, resolve: { item: ProductResolveService } }
 ];
