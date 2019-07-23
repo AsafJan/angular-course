@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from './services/auth.service';
+import { Store } from '@ngrx/store';
+import { getUser } from './login.selector';
 
 @Component({
   selector: 'app-root',
@@ -11,10 +13,13 @@ export class AppComponent implements OnInit {
   title = 'shs-course-project';
   userEmail: String = null;
 
-  constructor(private router: Router, private auth: AuthService) { }
+  constructor(private router: Router,
+    private auth: AuthService,
+    private store: Store<any>) { }
 
   ngOnInit(): void {
-    this.auth.getUserEmail().subscribe(email => this.userEmail = email);
+    // this.auth.getUserEmail().subscribe(email => this.userEmail = email);
+    this.store.select(getUser).subscribe(email => this.userEmail = email);
   }
 
   GetUserEmail() {

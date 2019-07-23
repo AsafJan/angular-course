@@ -5,15 +5,15 @@ import {
   createSelector,
   MetaReducer
 } from '@ngrx/store';
-import { environment } from '../../environments/environment';
-import { AuthState, reducer } from '../login.reducer';
+import { environment } from '../../../environments/environment';
+import { FeedState, reducer } from '../feed.reducer';
 
 export interface State {
-  authState: AuthState
+  feedState: FeedState
 }
 
 export const reducers: ActionReducerMap<State> = {
-  authState: reducer
+  feedState: reducer
 };
 
 

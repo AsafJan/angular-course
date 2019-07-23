@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { Store } from '@ngrx/store';
 import { UserLogin } from '../login.actions';
+import { getUser } from '../login.selector';
 
 @Component({
   selector: 'app-login',
@@ -14,6 +15,7 @@ export class LoginComponent implements OnInit {
     private store: Store<any>) { }
 
   ngOnInit() {
+    this.store.select(getUser);
   }
 
   submit(form) {
